@@ -8,22 +8,66 @@ public class Cat {
 //For ssh testing only
 	
 	//Attributes
-	String name;
-	int month;//年龄
-	double weight;//体重
-	String species;//品种
+	//修改属性的可见性---private
+	private String name;
+	private int month;//年龄
+	private double weight;//体重
+	private String species;//品种
 	
 	//添加无参构造方法
 	public Cat() {
-		System.out.println("你已创造了一个小猫对象！");
+		System.out.println("(无参数)你已创造了一个小猫对象！");
 	}
 	
 	//添加有参构造方法
-	public Cat(String name) {
+	
+	  public Cat(String name, int month, double weight, String species) { 
+	  //构造方法不能被同一类的普通方法调用，但是可以被同一类内其他构造方法调用，这种情况使用this()调用，且必须写在第一行 this.name =
+      this();
+	  this.setMonth(month); 
+	  this.setName(name); 
+	  this.setSpecies(species); 
+	  this.setWeight(weight);
+	  System.out.println("(有参数)你已创造了一个小猫对象！" + name); }
+	 
+	
+	//创建get/set方法
+	//在get和set方法里添加对属性的限定
+	public void setName(String name) {
 		this.name = name;
-		System.out.println("你已创造了一个小猫对象！" + name);
 	}
+	
+	public String getName() {
+		return "我是一只名叫："+this.name+"的宠物猫";
+	}		
 			
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		if(month<=0)
+			System.out.println("NOT VALID IMPUT!!!");
+		else
+			this.month = month;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public String getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+
 	//Methods
 	//跑动的方法
 	public void run() {
