@@ -14,6 +14,9 @@ public class Cat {
 	private double weight;//体重
 	private String species;//品种
 	
+	
+	
+	
 	//添加无参构造方法
 	public Cat() {
 		System.out.println("(无参数)你已创造了一个小猫对象！");
@@ -30,7 +33,15 @@ public class Cat {
 	  this.setWeight(weight);
 	  System.out.println("(有参数)你已创造了一个小猫对象！" + name); }
 	 
-	
+	  {
+			System.out.println("我是构造代码块1");
+	  }//构造代码块
+	  
+	  
+	  static{
+			System.out.println("我是静态代码块A");
+	  }//静态代码块
+	  
 	//创建get/set方法
 	//在get和set方法里添加对属性的限定
 	public void setName(String name) {
